@@ -1,5 +1,7 @@
 # Prestapyt
 
+** This fork supports Python 3 only **
+
 prestapyt is a library for Python to interact with the PrestaShop's Web Service API.
 
 Learn more about the PrestaShop Web Service from the [Official Prestashop Documentation].
@@ -15,13 +17,9 @@ and then returns the XML ready for you to work with in Python
 
 ## Installation
 
-The easiest way to install prestapyt (needs setuptools):
+Using pip:
 
-    easy_install prestapyt
-
-Or, better, using pip:
-
-    pip install prestapyt
+    pip install git+https://github.com/zaro/prestapyt.git
 
 If you do not have setuptools, download prestapyt as a .tar.gz or .zip from
 [Prestapyt Source Archives], untar it and run:
