@@ -479,19 +479,19 @@ class PrestaShopWebService(object):
             elements for data to be uploaded as files.
         :return: headers and body.
         """
-        BOUNDARY = '----------ThIs_Is_tHe_bouNdaRY_$'
-        CRLF = '\r\n'
+        BOUNDARY = b'----------ThIs_Is_tHe_bouNdaRY_$'
+        CRLF = b'\r\n'
         L = []
         for (key, filename, value) in files:
-            L.append('--' + BOUNDARY)
+            L.append(b'--' + BOUNDARY)
             L.append(
-                'Content-Disposition: form-data; \
-                    name="%s"; filename="%s"' % (key, filename))
-            L.append('Content-Type: %s' % self.get_content_type(filename))
-            L.append('')
+                ('Content-Disposition: form-data; name="%s"; filename="%s"' % (key, filename)).encode('ascii')
+            )
+            L.append(('Content-Type: %s' % self.get_content_type(filename)).encode('ascii'))
+            L.append(b'')
             L.append(value)
-        L.append('--' + BOUNDARY + '--')
-        L.append('')
+        L.append(b'--' + BOUNDARY + b'--')
+        L.append(b'')
         body = CRLF.join(L)
         headers = {
             'Content-Type': 'multipart/form-data; boundary=%s' % BOUNDARY
