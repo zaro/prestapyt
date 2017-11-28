@@ -494,7 +494,7 @@ class PrestaShopWebService(object):
         L.append(b'')
         body = CRLF.join(L)
         headers = {
-            'Content-Type': 'multipart/form-data; boundary=%s' % BOUNDARY
+            'Content-Type': 'multipart/form-data; boundary=%s' % BOUNDARY.decode('ascii')
         }
         return headers, body
 
